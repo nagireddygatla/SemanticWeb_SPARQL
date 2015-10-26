@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Periodic Table Browser</title>
+
+    <script type = "text/javascript">
+        
+    function subclass(id)
+    
+    {
+    	document.getElementById("subclass").innerHTML = "";
+    	document.getElementById("subclassElmts").innerHTML = "";
+    	document.getElementById("Element").innerHTML = "";
+	var url_temp1 = "PeriodicTable.jsp?id="+id+"&time="+new Date().getTime();
+		
+		ajaxGeneric(url_temp1,function()
+	{
+	
+	if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	{
+			if(id != "element"){
+			document.getElementById("subclass").innerHTML=xmlhttp.responseText; 		
+			}
+			else{
+				document.getElementById("subclassElmts").innerHTML=xmlhttp.responseText;
+				
+			}
+	}
+	});
+    	
+    }
+    
+    function classelements(url)
+    
+    {
+    	
+    	document.getElementById("subclassElmts").innerHTML = "";
+    	document.getElementById("Element").innerHTML = "";
+    	
+	var url_temp2 = url+"&time="+new Date().getTime();
+		
+		ajaxGeneric(url_temp2,function()
+	{
+	
+	if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	{
+	
+			document.getElementById("subclassElmts").innerHTML=xmlhttp.responseText; 		
+  		
+	}
+	});
+    	
+    }
+    
+    
+    function elementdata(url)
+    
+    {
+    	
+	var url_temp3 = url+"&time="+new Date().getTime();
+		
+		ajaxGeneric(url_temp3,function()
+	{
+	
+	if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	{
+	
+			document.getElementById("Element").innerHTML=xmlhttp.responseText; 		
+  		
+	}
+	});
+    	
+    }
+    
+
+    
+    function ajaxGeneric(url, func){
+
+    	
+    	if (window.XMLHttpRequest)
+    		
+    	{
+    		// code for IE7+, Firefox, Chrome, Opera, Safari
+    		xmlhttp=new XMLHttpRequest();
+    		
+    	}
+    	else
+    	{
+    		// code for IE6, IE5
+    		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    	}
+    	
+    			xmlhttp.onreadystatechange= func;
+    			xmlhttp.open("GET",url,false);
+    			xmlhttp.send(null);
+    		
+    }
+
+</script>
+<style>
+#subclass{
+    position: absolute;
+    top: 150px;
+    left: 20px;
+
+}
+
+#subclassElmts{
+    position: absolute;
+    top: 150px;
+    left: 250px;
+
+}
+
+#Element{
+    position: absolute;
+     top: 150px;
+    left: 400px;
+
+}
+
+</style>
+</head>
+
+<body bgcolor = "#CCFFCC">
+<form name="Home">
+
+<h2>Periodic Table Browser</h2>
+
+
+
+<input type="button" value="Classification" id="classification" onclick = "return subclass(this.id);"/>
+<input type="button" value="StandardState" id="standardState" onclick = "return subclass(this.id);"/>
+<input type="button" value="Block" id="block" onclick = "return subclass(this.id);"/>
+<input type="button" value="Group" id="group" onclick = "return subclass(this.id);"/>
+<input type="button" value="Period" id="period" onclick = "return subclass(this.id);"/>
+<input type="button" value="Elements" id="element" onclick = "return subclass(this.id);"/>
+<input type="button" value="Search By" id="search" onclick = "location.href='searchby.html'"/>
+<div id="subclass"></div>
+<div id="subclassElmts"></div>
+<div id="Element"></div>
+
+</form>
+</body>
+</html>

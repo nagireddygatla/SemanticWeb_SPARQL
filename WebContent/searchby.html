@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Periodic Table Browser</title>
+
+    <script type = "text/javascript">
+        
+
+    
+    function search(url)
+    
+    {
+    	var value = document.getElementById("val").value;
+    	var type = document.getElementById("type").value;
+    	if(value == ""){
+    		
+    		alert("Enter the value to search");
+    		return false;
+    		
+    	}
+    	
+	var url_temp3 = url+"?value="+value+"&type="+type+"&time="+new Date().getTime();
+	//alert(url_temp3);
+		
+		ajaxGen(url_temp3,function()
+	{
+	
+	if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	{
+	
+			document.getElementById("searchelement").innerHTML=xmlhttp.responseText; 		
+  		
+	}
+	});
+    	
+    }
+    
+
+    
+    function ajaxGen(url, func){
+
+    	
+    	if (window.XMLHttpRequest)
+    		
+    	{
+    		// code for IE7+, Firefox, Chrome, Opera, Safari
+    		xmlhttp=new XMLHttpRequest();
+    		
+    	}
+    	else
+    	{
+    		// code for IE6, IE5
+    		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    	}
+    	
+    			xmlhttp.onreadystatechange= func;
+    			xmlhttp.open("GET",url,false);
+    			xmlhttp.send(null);
+    		
+    }
+
+</script>
+<style>
+#subclass{
+    position: absolute;
+    top: 150px;
+    left: 20px;
+
+}
+
+#subclassElmts{
+    position: absolute;
+    top: 150px;
+    left: 250px;
+
+}
+
+#Element{
+    position: absolute;
+     top: 150px;
+    left: 400px;
+
+}
+
+</style>
+</head>
+
+<body bgcolor = "#CCFFCC">
+<form name="Home">
+
+<h2>Search Elements</h2>
+<table>
+<tr>
+<td>Search By:</td><td><select id=type>
+<option value="name">Name</option>
+<option value="symbol">Symbol</option>
+<option value="atomicnumber">Atomic Number</option>
+</select>
+</td>
+</tr>
+<tr><td>
+Value:</td><td><input type="text" id = "val" name="val" /></td></tr>
+<tr><td></td><td><input type="button" value="Search" id="Search.jsp" onclick = "return search(this.id);"/></td></tr>
+</table>
+<div id = "searchelement"></div>
+
+</form>
+</body>
+</html>

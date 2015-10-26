@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+ 
+<servlet>
+  <servlet-name>Periodic Table Home</servlet-name>
+  <servlet-class>Sample</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>Periodic Table Home</servlet-name>
+  <url-pattern>/home</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>Groups in Periodic Table</servlet-name>
+  <servlet-class>Ptgroups</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>Groups in Periodic Table</servlet-name>
+  <url-pattern>/ptgroups</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>Elements by Group</servlet-name>
+  <servlet-class>Ptgroup</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>Elements by Group</servlet-name>
+  <url-pattern>/ptgroup</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>Periods in Periodic Table</servlet-name>
+  <servlet-class>Ptperiods</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>Periods in Periodic Table</servlet-name>
+  <url-pattern>/ptperiods</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>Elements by Period</servlet-name>
+  <servlet-class>Ptperiod</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>Elements by Period</servlet-name>
+  <url-pattern>/ptperiod</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>Blocks in Periodic Table</servlet-name>
+  <servlet-class>Ptblocks</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>Blocks in Periodic Table</servlet-name>
+  <url-pattern>/ptblocks</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>Elements by Block</servlet-name>
+  <servlet-class>Ptblock</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>Elements by Block</servlet-name>
+  <url-pattern>/ptblock</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>States in Periodic Table</servlet-name>
+  <servlet-class>Ptstates</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>States in Periodic Table</servlet-name>
+  <url-pattern>/ptstates</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>Elements by State</servlet-name>
+  <servlet-class>Ptstate</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>Elements by State</servlet-name>
+  <url-pattern>/ptstate</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>Periodic Table Elements</servlet-name>
+  <servlet-class>Ptele</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>Periodic Table Elements</servlet-name>
+  <url-pattern>/ptele</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>Classification</servlet-name>
+  <servlet-class>Ptclassifies</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>Classification</servlet-name>
+  <url-pattern>/ptclassifies</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>Elements by Classification</servlet-name>
+  <servlet-class>Ptclassify</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>Elements by Classification</servlet-name>
+  <url-pattern>/ptclassify</url-pattern>
+</servlet-mapping>
+</web-app>
